@@ -1,0 +1,8 @@
+title Creating a note on a SPA
+
+note over Browser: User inputs note content and then presses submit
+
+Browser->+Server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+Server->-Browser: Response 201 (Created)
+
+note over Browser: The new note is rendered without reloading the page

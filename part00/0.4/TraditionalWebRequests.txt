@@ -1,0 +1,53 @@
+title Traditional Web Requests
+
+note over Browser: Webpage URL is entered
+
+Browser->+Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+Server-->-Browser: HTML document
+
+note over Browser: Browser begins interpreting the HTML code line by line
+note over Browser: Browser finds stylesheet link in header
+
+Browser->+Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Server-->-Browser: main.css
+
+note over Browser: Browser finds JavaScript link in header
+
+Browser->+Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+Server-->-Browser: main.js
+
+note over Browser: Browser starts executing the JavaScript code in main.js
+note over Browser: The JavaScript code requests for the notes from the server
+
+Browser->+Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Server->-Browser: data.json
+
+note over Browser: The browser then executes a callback as a result of the change in state, which renders the notes
+note over Browser: User inputs note content and then presses submit
+
+Browser->+Server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+Server->-Browser: Response 302 (Found)
+
+note over Browser: The response data directs the broswer to reload the page
+
+Browser->+Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+Server-->-Browser: HTML document
+
+note over Browser: Browser begins interpreting the HTML code line by line
+note over Browser: Browser finds stylesheet link in header
+
+Browser->+Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Server-->-Browser: main.css
+
+note over Browser: Browser finds JavaScript link in header
+
+Browser->+Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+Server-->-Browser: main.js
+
+note over Browser: Browser starts executing the JavaScript code in main.js
+note over Browser: The JavaScript code requests for the new notes from the server
+
+Browser->+Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Server->-Browser: data.json
+
+note over Browser: The browser then executes a callback as a result of the change in state, which renders the new notes

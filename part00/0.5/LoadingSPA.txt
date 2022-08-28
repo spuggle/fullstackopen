@@ -1,0 +1,25 @@
+title Loading a SPA
+
+note over Browser: Webpage URL is entered
+
+Browser->+Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+Server-->-Browser: spa (HTML document)
+
+note over Browser: Browser begins interpreting the HTML code line by line
+note over Browser: Browser finds stylesheet link in header
+
+Browser->+Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+Server-->-Browser: main.css
+
+note over Browser: Browser finds JavaScript link in header
+
+Browser->+Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+Server-->-Browser: spa.js
+
+note over Browser: Browser starts executing the JavaScript code in spa.js
+note over Browser: The JavaScript code requests for the notes from the server
+
+Browser->+Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+Server->-Browser: data.json
+
+note over Browser: The browser then executes a callback as a result of the change in state, which renders the notes
